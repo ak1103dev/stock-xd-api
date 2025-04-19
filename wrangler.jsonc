@@ -1,0 +1,8 @@
+{
+  "name": "stock-xd-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-19",
+  "observability": {
+    "enabled": true
+  }
+}
