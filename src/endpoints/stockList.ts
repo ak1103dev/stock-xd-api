@@ -68,7 +68,7 @@ export class StockList extends OpenAPIRoute {
       }
     };
 
-    return axios.request(config)
+    const calendar = await axios.request(config)
       .then((response) => {
         // console.log(JSON.stringify(response.data));
         return response.data
@@ -77,5 +77,9 @@ export class StockList extends OpenAPIRoute {
         console.log(error);
         throw error
       });
+    const list = calendar.reduce((arr, obj) => {
+      return [...arr, ...obj.types[0].corporateActions]
+    }, [])
+    return list
 	}
 }
